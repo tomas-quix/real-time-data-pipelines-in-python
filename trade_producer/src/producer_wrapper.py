@@ -64,9 +64,8 @@ class ProducerWrapper:
         print(self._kafka_topic)
         self._producer.produce(
             topic=self._kafka_topic,
-            headers=headers,
             key=key,
-            value=json.dumps(value),
+            value=json.dumps(value)
         )
 
         # # super().produce(topic, key, value, headers, partition, timestamp)
