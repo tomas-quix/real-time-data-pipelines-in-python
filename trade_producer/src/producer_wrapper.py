@@ -68,6 +68,7 @@ class ProducerWrapper:
             key=key,
             value=json.dumps(value),
         )
+        self._producer.flush()
 
         # # super().produce(topic, key, value, headers, partition, timestamp)
         # if self._use_local_kafka:
