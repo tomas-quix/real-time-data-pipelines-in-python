@@ -51,8 +51,13 @@ class ProducerWrapper:
             # "cfg_builder" adds a prefix to the topic name that is required by the Quix platform
             self._kafka_topic = topic
 
-            cfg_builder.create_topics([TopicCreationConfigs(name=topic)])
+            
 
+            cfg_builder.create_topics([TopicCreationConfigs(name=topic)])
+            print('TOPIC - ', self._kafka_topic)
+            print('WORKSPACE_ID - ', cfg_builder.workspace_id)
+            
+            
             # self._serialize = QuixTimeseriesSerializer()
 
             self._producer = Producer(
