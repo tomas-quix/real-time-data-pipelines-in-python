@@ -68,7 +68,7 @@ class ProducerWrapper:
     def produce(self, key, value: Dict[str, any], headers=None, partition=None, timestamp=None):
         self._producer.produce(
             topic=self._kafka_topic,
-            key=key,
+            key=key.replace("/", "-"),
             value=json.dumps(value)
         )
 
