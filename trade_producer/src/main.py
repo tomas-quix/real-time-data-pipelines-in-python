@@ -40,9 +40,10 @@ def run():
                 continue
 
             # logger.info(f"Received {len(trades)} trades: {trades}")
-            print(trade.product_id)
             # produce trades to Kafka
             for trade in trades:
+                print(trade.product_id)
+
                 producer.produce(
                     key=trade.product_id,
                     value=trade.to_dict(),
